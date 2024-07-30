@@ -58,6 +58,9 @@ wp --info
 check_success "WP-CLI is not installed correctly."
 
 if [ "$FORCE" = true ]; then
+        echo "Dropping existing WordPress database tables..."
+        wp db reset --yes --path=$WORDPRESS_PATH
+        check_success "Failed to drop existing database tables."
     # Remove existing WordPress installation if it exists
     if [ -d "$WORDPRESS_PATH" ] && [ -n "$(ls -A $WORDPRESS_PATH)" ]; then
         echo "Force parameter detected: Removing existing WordPress files..."
@@ -66,9 +69,6 @@ if [ "$FORCE" = true ]; then
     else
         echo "No WordPress files to remove."
     fi
-        echo "Dropping existing WordPress database tables..."
-        wp db reset --yes --path=$WORDPRESS_PATH
-        check_success "Failed to drop existing database tables."
 else
     echo "No force parameter detected: Skipping file removal and database reset."
 fi
