@@ -2,8 +2,8 @@
 
 # Define variables
 WORDPRESS_PATH="/opt/bitnami/wordpress"
-PLUGINS_SOURCE_PATH="/php/wordpress/plugins"
-ACTIVATE_PLUGINS=("plugin-one" "plugin-two" "plugin-three") # Replace with your actual plugin names
+PLUGINS_SOURCE_PATH="./php/wordpress/plugins"
+ACTIVATE_PLUGINS=("vibebp" "wplms_plugin" "wplms-pdf-certificate") # Replace with your actual plugin names
 
 # Function to check the success of a command and exit if it fails
 check_success() {
