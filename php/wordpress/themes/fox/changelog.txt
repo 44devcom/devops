@@ -1,0 +1,137 @@
+==========      todos
+// fix [button /] shortcode for HTML widget: https://withemes.ticksy.com/ticket/3521307/
+// have to click arrow in mobile menu. should click on the entire menu item.
+// fix: Fox Framework sticky header section header mobile enabled: https://withemes.ticksy.com/ticket/3436191/
+// fix search on mobile
+// fix image zoom in on-top style
+// fix: header elements gone on header builder
+// fix: sticky section hidden elementor header builder
+// feature: add compact search option for mobile header builder
+
+// fix: site lost style when jetpack optimizer enabled
+// fix: load CSS problem: https://daniellacatus.eu/
+// fix: Tooltip issue
+// feature: page builder for any page
+
+// fix: Type &amp; hit enter: -1
+
+==========      version 6.2.8
+- quote in editor interface: https://withemes.ticksy.com/ticket/3550576/
+// make entire link clickable: https://kythidora.gr/
+// liveposting schema - themeforest
+// For the next update, could you please add the option to add banner add over the header on mobile devices? My website needs it.
+// consider adding offset to Fox post widget
+// add copy link to share buttons
+// tagline on mobile
+// recover autoload feature
+// resolve youtube ratio: https://withemes.ticksy.com/ticket/3576243
+
+==========      version 6.2.7
+- fix: youtube video ratio not working properly
+- fix: add/clone section in homepage builder
+- fix categories long break layout
+- fix: &nbsp; the excerpt
+- fix: pagination not working when number missing
+
+==========      version 6.2.6 - urgent update
+- fix: clone, create new section in Homepage Builder freezing, crashing.
+- fix: link to jpg display block: https://withemes.ticksy.com/ticket/3616002
+
+==========      version 6.2.5.1
+- fix: the post group margin issue
+
+==========      version 6.2.5
+- feature: add margin bottom option for section
+- feature: add Standard post format to the Customize > Builder > Section > Query > Post Format
+- feature: allow to embed youtube shorts with actual ratio, guide here: https://docs.withemes.com/thefox/faqs/how-to-embed-youtube-shorts/
+- feature: add font variants to load in Customize > DESIGN > Choose Fonts
+- fix: remove link to post from rich media thumbnail
+- fix: homepage builder section margin top/bottom not working when section spacing is set
+- fix: post group spacing on mobile
+- fix sidebar on mobile: https://prnt.sc/kTsyMo5YN_sw
+- fix: html excerpt in homepage builder
+
+==========      version 6.2.4.1
+- fix: upgrade issue v5->v6 not importing homepage sections
+
+==========      version 6.2.4
+- feature: translation terms for: Dark/Light
+- feature: allow to display rich media thumbnail (video/audio) on blog
+- feature: option to disable post meta: Customize > Misc
+- feature: option to not exclude top area posts from main stream: Customize > Blog > Top area
+- fix: issue self-hosted video not displayed correctly in single post
+- fix: woocommerce gallery not working
+- fix: pdf embed not displayed well
+- fix: subtitle for hero half layout not centered
+- fix: make top area options work per-category
+- fix: review score not removed for single post
+- fix: sidebar width on tablet not correct
+
+==========      version 6.2.3
+- feature: add Street demo
+- feature: add Twitter share image in head meta
+- feature: add builder heading padding option
+
+==========      version 6.2.2
+- feature: add newspaper demo, bern demo
+- fix: blockquote overlay
+- fix: minor spacing issues
+- fix: fox_blog shortcode not reset query
+
+==========      version 6.2.1
+- feature: backup your theme settings regularly so that your settings are always safe.
+- fix: check fox version better
+- fix: reduce database option autoload
+
+==========      version 6.2
+- feature: built-in backup settings in Customizer
+- feature: [fox_blog] shortcode
+- feature: clear log when upgrade v5 -> v6
+- feature: add page title align
+- feature: add page layout 5, 6
+- feature: add hero full text position for individual post/page
+- feature: add page title typography option
+- feature: add page color typography option
+- feature: Fox Framework 3.0 which is more stable faster
+- recover: blockquote
+- recover: author "by" word
+- fix: make pagination works better without 'base' and 'format' params. no more /page/1 in pagination
+- fix: child theme can't install plugins fox framework
+- fix: upgrade v6 - better typography match
+- fix: page content should inherit typography from post content
+- fix: various issues when upgrade v5 -> v6
+- fix: upgrade v5 -> v6 missing custom sidebar for archive category, tag, author..
+- fix: list thumbnail ugly if tablet, mobile width options not set
+- fix: poor spacing of the post elements for different layouts so that we don't need layout options
+- fix: handle css loading better for single post/page
+- fix: upgrade v5 -> v6, builder heading line color
+- fix: upgrade v5 -> v6, builder section ads
+- fix: mis-calculate offset + pagination in page 2 when offset being set
+- fix: remove '.tab-content' class that affects Redis Cache plugin
+- fix: load things better for Fox v6 + Fox Framework
+
+==========      version 6.1.1
+- fix: pre_get_posts should avoid admin area
+- fix: pagination not working on homepage if too many posts per page in settings > reading
+- fix: set $content_width to be container width option, and 1080 by default
+
+==========      version 6.1
+- fix: Fox ads displays the script content
+- fix: dark mode toggle blink in fraction of second
+- adjust: disable smart CSS load by default to avoid conflict with optimization plugins
+
+==========      version 6.0.9.9
+- fix: header classic search issue on sticky header
+- fix: single post featured image stretch align center when image small
+- fix: make dashicons enabled by default to avoid errors
+- feature: add 1/5 + 4/5 layout for header builder
+- feature: add visible search form option for header builder
+
+==========      version 6.0.9.8
+- fix: $term is null in blog.php
+
+==========      version 6.0.9.7
+- feature: make theme compatible with WordPress 6.4.x
+- fix: unique reading article for Fox Framework
+- fix: import demo data shows v5
+- recover: LIVE button

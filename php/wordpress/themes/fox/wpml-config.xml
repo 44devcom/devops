@@ -1,0 +1,15 @@
+<wpml-config>
+    <custom-types>
+        <custom-type translate="1">fox_block</custom-type>
+    </custom-types>
+    
+    <admin-texts>
+        <key name="theme_mods_fox">
+            <key name="wi_logo" />
+            <key name="wi_header_inline_element_shortcode" />
+            <key name="wi_copyright" />
+            <key name="wi_404_title" />
+            <key name="wi_page_404_message" />
+        </key>
+    </admin-texts>
+</wpml-config>

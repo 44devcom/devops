@@ -1,0 +1,57 @@
+@import 'lib';
+
+blockquote,
+.wp-block-freeform.block-library-rich-text__tinymce blockquote {
+    font-style: italic;
+    padding: 0.15em 1em;
+    margin: 1em auto;
+    border-left: 3px solid #ccc;
+    font-size: 1.3em;
+    cite {
+        display: block;
+        font-size: 0.8em;
+        font-style: normal;
+        font-family: Arial, Helvetica, sans-serif;
+        &::before{
+            content: "\2014";
+            padding-right: 0.2em;
+            font-size: 1.2em;
+            line-height: 1em;
+        }
+    }
+}
+@include media( tablet ) {
+    blockquote,
+    .wp-block-freeform.block-library-rich-text__tinymce blockquote {
+        padding: 0 1em;
+        font-size: 1.2em;
+    }
+}
+
+pre,
+.wp-block-freeform.block-library-rich-text__tinymce pre{
+    background: #f2f2f2;
+    font-family: inherit;
+    margin-bottom: 2em;
+    padding: 1.25em;
+    overflow: auto;
+    max-width: 100%;
+}
+@include media( tablet ) {
+    pre,
+    .wp-block-freeform.block-library-rich-text__tinymce pre {
+        margin-bottom: 1.25em;
+        padding: 1em;
+    }
+}
+
+code,
+.wp-block-freeform.block-library-rich-text__tinymce code{
+    background-color: rgba(0,0,0,.05);
+    font-family: inherit;
+    padding: .15em;
+    border-radius: 2px;
+}
+// .wp-block-freeform.block-library-rich-text__tinymce blockquote,
+// .wp-block-freeform.block-library-rich-text__tinymce pre,
+// .wp-block-freeform.block-library-rich-text__tinymce pre

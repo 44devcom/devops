@@ -1,0 +1,97 @@
+@import '../lib';
+
+/* SECTION SIDEBAR
+ * @since 4.4
+-------------------------------------------------------------------------------------- */
+.section-sidebar-inner {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    
+    margin: -40px -20px 0;
+}
+.main-section-sidebar {
+    overflow: hidden;
+    
+    .widget,
+    .widget + .widget {
+        flex: none;
+        padding: 40px 20px 0;
+        margin: 0 !important;
+        border: 0 !important;
+    }
+}
+.main-section-sidebar-1 {
+    .widget {
+        width: 100%;
+    }
+}
+.main-section-sidebar-2 {
+    .widget {
+        width: 50%;
+    }
+    @include media( mobile-small ) {
+        .section-sidebar-inner {
+            margin: 0;
+        }
+        .widget {
+            width: 100%;
+            padding: 0;
+            
+            & + .widget {
+                margin-top: 20px !important;
+            }
+        }
+    }
+}
+.main-section-sidebar-3 {
+    .widget {
+        width: 33.33%;
+    }
+    
+    @include media( mobile ) {
+        .section-sidebar-inner {
+            margin: 0;
+        }
+        .widget {
+            width: 100%;
+            padding: 0;
+            
+            & + .widget {
+                margin-top: 20px !important;
+            }
+        }
+    }
+}
+.main-section-sidebar-4 {
+    
+    .widget {
+        width: 25%;
+    }
+    
+    @include media( tablet ) {
+        .section-sidebar-inner {
+            margin: -20px -10px 0;
+        }
+        .widget,
+        .widget + .widget {
+            width: 50%;
+            padding: 20px 10px 0;
+        }
+    }
+    
+    @include media( mobile ) {
+        .section-sidebar-inner {
+            margin: 0;
+        }
+        .widget {
+            width: 100%;
+            padding: 0;
+            
+            & + .widget {
+                margin-top: 20px !important;
+            }
+        }
+    }
+    
+}

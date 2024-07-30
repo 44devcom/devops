@@ -1,0 +1,209 @@
+/*
+Theme Name: Fox
+Theme URI: https://themeforest.net/item/the-fox-contemporary-magazine-theme-for-creators/11103012/
+Author: WiThemes
+Author URI: https://themeforest.net/user/withemes/
+Description: A Modern & Contemporary Blog / News / Magazine WordPress Theme for Creators
+Version: 6.3.1
+
+License:
+License URI:
+Text Domain: wi
+Tested up to: 6.2.1
+Requires at least: 5.9
+Requires PHP: 7.1
+
+Real tags:
+
+adsense, 
+music magazine,
+history,
+elementor,
+food blog,
+minimal magazine,
+minimal,
+times news,
+travel blog,
+fashion blog,
+blogging,
+newspaper,
+writer,
+new york times,
+black and white
+
+Tags: blog, news, photography, grid-layout, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-logo, custom-menu
+Primary use: Blog / Magazine / Newspaper
+
+content width: 1080px
+
+*/
+html {
+    overflow-y: scroll;
+}
+
+// typography
+$body: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$heading: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$nav: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+// color
+$accent: #db4a37;
+$link-color: #db4a36;
+$border: #c0c1c0;
+
+// content width
+$container: 1080px;
+
+// screen widths
+$desktop: 1279px;
+$ipad: 1023px;
+$ipad-p: 767px;
+$iphone: 600px;
+$iphone-p: 479px;
+$iphone-5: 374px;
+
+$ipad-f: 0.88;
+$ipad-p-f: 0.71;
+$iphone-f: 0.5;
+$iphone-p-f: 0.42;
+
+// mobile header height
+$mobile-height: 54px;
+
+$fb: #3b5998;
+$ms: #0084ff;
+$tw: #55acee;
+$pin: #cc2127;
+$lin: #0077b5;
+$em: #111;
+$wa: #128c7e;
+$rd: #ff4500;
+
+/* IMPORT
+-------------------------------------------------------------------------------------------------------------------- */
+
+// 01 - LIB
+@import 'v55/css/lib/bourbon/bourbon';
+@import 'v55/css/lib/media-queries';
+@import 'v55/css/lib/utilities'; // since 4.3
+@import 'v55/css/lib/reset';
+@import 'v55/css/lib/bootstrap_lite';
+@import 'v55/css/lib/fontawesome-5.15.4/scss/fontawesome';
+@import "v55/css/lib/fontawesome-5.15.4/scss/solid.scss";
+@import "v55/css/lib/fontawesome-5.15.4/scss/brands.scss";
+@import 'v55/css/lib/feather';
+@import 'v55/css/lib/flexslider';
+@import 'v55/css/lib/slick';
+// @import 'v55/css/lib/flickity';
+@import 'v55/css/lib/tooltipster';
+@import 'v55/css/lib/magnific.popup'; // since 4.0
+@import 'v55/css/lib/lightbox'; // since 4.0
+@import 'v55/css/lib/brands_bg'; // since 4.0
+@import 'v55/css/lib/brands_color'; // since 4.3
+
+// 02 - COMPONENTS
+@import 'v55/css/common'; // typography, reusable code, general layout, WP default elements, form input, button
+@import 'v55/css/elements'; // heading, instagram, authors, social
+@import 'v55/css/header'; // header, navigation
+@import 'v55/css/blog'; // blog layout, blog item, pagination, titlebar, archive page
+@import 'v55/css/builder'; // section, heading
+@import 'v55/css/single'; // single post layout, tag, authorbox, related posts..
+@import 'v55/css/widgets'; // widgets
+@import 'v55/css/footer'; // footer
+@import 'v55/css/mobile'; // off-canvas menu
+@import 'v55/css/plugins'; // wpcf7, mailchimp, elementor
+@import 'v55/css/woocommerce'; // woocommerce
+@import 'v55/css/legacy'; // code from previous versions, backward compatibility
+
+/**
+ * let those classes in the end of file
+ */
+.hide_on_desktop {
+    display: none !important;
+}
+.show_on_tablet {
+    @include media( tablet ) {
+        display: block !important;
+    }
+}
+.hide_on_tablet {
+    @include media( tablet ) {
+        display: none !important;
+    }
+}
+.show_on_mobile {
+    @include media( mobile ) {
+        display: block !important;
+    }
+}
+.hide_on_mobile {
+    @include media( mobile ) {
+        display: none !important;
+    }
+}
+
+
+/* FOX BLOCK PAGE
+---------------------------------------------------------------------------------------------------------------------------- */
+.single-fox_block {
+    .site-content {
+        min-height: 100vh;
+    }
+}
+.demonstration {
+    display: block;
+    background: #000;
+    color: #fc0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    padding: 10px;
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    p {
+        margin: 0;
+    }
+}
+
+.fox-library-modal-btn {
+    margin-left: 5px;
+    background: #000;
+    vertical-align: top;
+}
+.fox-library-modal-btn:before {
+    content: "";
+    width: 24px;
+    height: 24px;
+    background-image: url(images/foxhead.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 10px;
+}
+.elementor-add-new-section .elementor-add-section-area-button.fox-library-modal-btn {
+    width: auto;
+    font-size: 14px;
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+    background: #006ba1;
+    border-radius: 0;
+    padding: 0 10px;
+    
+    display: flex;
+    align-items: center;
+}
+
+/* TEMPLATE BUILDER PROBLEM
+---------------------------------------------------------------------------------------------------------------------------- */
+@include media( mobile ) {
+    .archive-builder,
+    .single-builder {
+        .container {
+            max-width: 100%;
+        }
+    }
+}
