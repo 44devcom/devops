@@ -66,7 +66,15 @@ if [ "$FORCE" = true ]; then
     else
         echo "No WordPress files to remove."
     fi
-    wp db reset --yes --path=$WORDPRESS_PATH
+
+    # Drop existing database tables if they exist
+    if [ -f "$WORDPRESS_PATH/wp-config.php" ]; then
+        echo "Dropping existing WordPress database tables..."
+        wp db reset --yes --path=$WORDPRESS_PATH
+        check_success "Failed to drop existing database tables."
+    else
+        echo "No existing WordPress installation detected at $WORDPRESS_PATH."
+    fi
 else
     echo "No force parameter detected: Skipping file removal and database reset."
 fi
@@ -81,17 +89,14 @@ echo "Creating a new wp-config.php file..."
 wp config create --dbname=$DB_NAME --dbuser=$DB_USER --dbpass=$DB_PASSWORD --dbhost=$DB_HOST --path=$WORDPRESS_PATH
 check_success "Failed to create wp-config.php."
 
-# Install WordPress if it's not already installed or if force is true
-if ! wp core is-installed --path=$WORDPRESS_PATH ; then
+# Install WordPress if it's not already installed
+if ! wp core is-installed --path=$WORDPRESS_PATH; then
     echo "Installing WordPress..."
-    echo "
-    wp core install --url="$URL" --title="$TITLE" --admin_user="$ADMIN_USER" --admin_password="$ADMIN_PASSWORD" --admin_email="$ADMIN_EMAIL" --skip-email --path=$WORDPRESS_PATH"
-    wp core install --url=$URL --title=$TITLE --admin_user=$ADMIN_USER --admin_password=$ADMIN_PASSWORD --admin_email=$ADMIN_EMAIL --skip-email --path=$WORDPRESS_PATH
+    wp core install --url="$URL" --title="$TITLE" --admin_user="$ADMIN_USER" --admin_password="$ADMIN_PASSWORD" --admin_email="$ADMIN_EMAIL" --skip-email --path=$WORDPRESS_PATH
     check_success "Failed to install WordPress."
 else
     echo "WordPress is already installed."
 fi
-
 
 # Restart services
 echo "Restarting services..."
