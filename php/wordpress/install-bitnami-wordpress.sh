@@ -89,15 +89,16 @@ echo "Creating a new wp-config.php file..."
 wp config create --dbname=$DB_NAME --dbuser=$DB_USER --dbpass=$DB_PASSWORD --dbhost=$DB_HOST --path=$WORDPRESS_PATH
 check_success "Failed to create wp-config.php."
 
-# Install WordPress if it's not already installed
-if ! wp core is-installed --path=$WORDPRESS_PATH; then
+# Install WordPress if it's not already installed or if force is true
+if ! wp core is-installed --path=$WORDPRESS_PATH || [ "$FORCE" = true ]; then
     echo "Installing WordPress..."
-    echo "wp core install --url="$URL" --title="$TITLE" --admin_user="$ADMIN_USER" --admin_password="$ADMIN_PASSWORD" --admin_email="$ADMIN_EMAIL" --skip-email --path=$WORDPRESS_PATH"
+    echo "wp core install --url=\"$URL\" --title=\"$TITLE\" --admin_user=\"$ADMIN_USER\" --admin_password=\"$ADMIN_PASSWORD\" --admin_email=\"$ADMIN_EMAIL\" --skip-email --path=$WORDPRESS_PATH"
     wp core install --url="$URL" --title="$TITLE" --admin_user="$ADMIN_USER" --admin_password="$ADMIN_PASSWORD" --admin_email="$ADMIN_EMAIL" --skip-email --path=$WORDPRESS_PATH
     check_success "Failed to install WordPress."
 else
     echo "WordPress is already installed."
 fi
+
 
 # Restart services
 echo "Restarting services..."
