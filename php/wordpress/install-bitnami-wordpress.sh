@@ -68,7 +68,7 @@ if [ "$FORCE" = true ]; then
     fi
 
     # Drop existing database tables if they exist
-    if [ -f "$WORDPRESS_PATH/wp-config.php" ]; then
+    if [ ! -f "$WORDPRESS_PATH/wp-config.php" ]; then
         echo "Dropping existing WordPress database tables..."
         wp db reset --yes --path=$WORDPRESS_PATH
         check_success "Failed to drop existing database tables."
