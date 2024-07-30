@@ -66,15 +66,9 @@ if [ "$FORCE" = true ]; then
     else
         echo "No WordPress files to remove."
     fi
-
-    # Drop existing database tables if they exist
-    if [ ! -f "$WORDPRESS_PATH/wp-config.php" ]; then
         echo "Dropping existing WordPress database tables..."
         wp db reset --yes --path=$WORDPRESS_PATH
         check_success "Failed to drop existing database tables."
-    else
-        echo "No existing WordPress installation detected at $WORDPRESS_PATH."
-    fi
 else
     echo "No force parameter detected: Skipping file removal and database reset."
 fi
