@@ -4,12 +4,12 @@
 URL="https://44dev.com"
 TITLE="44dev.com"
 ADMIN_USER="admin"
-ADMIN_PASSWORD="secret"
+ADMIN_PASSWORD="adminpassword"
 ADMIN_EMAIL="info@44dev.com"
-DB_NAME="bitnami_wordpress"
-DB_USER="bn_wordpress"
-DB_PASSWORD=""
-DB_HOST="127.0.0.1:3306"
+DB_NAME="your_database_name"
+DB_USER="your_database_user"
+DB_PASSWORD="your_database_password"
+DB_HOST="your_database_host"
 WORDPRESS_PATH="/opt/bitnami/wordpress"
 FORCE=false
 
@@ -89,10 +89,14 @@ echo "Creating a new wp-config.php file..."
 wp config create --dbname=$DB_NAME --dbuser=$DB_USER --dbpass=$DB_PASSWORD --dbhost=$DB_HOST --path=$WORDPRESS_PATH
 check_success "Failed to create wp-config.php."
 
-# Install WordPress
-echo "Installing WordPress..."
-wp core install --url="$URL" --title="$TITLE" --admin_user="$ADMIN_USER" --admin_password="$ADMIN_PASSWORD" --admin_email="$ADMIN_EMAIL" --skip-email --path=$WORDPRESS_PATH --force
-check_success "Failed to install WordPress."
+# Install WordPress if it's not already installed
+if ! wp core is-installed --path=$WORDPRESS_PATH; then
+    echo "Installing WordPress..."
+    wp core install --url="$URL" --title="$TITLE" --admin_user="$ADMIN_USER" --admin_password="$ADMIN_PASSWORD" --admin_email="$ADMIN_EMAIL" --skip-email --path=$WORDPRESS_PATH
+    check_success "Failed to install WordPress."
+else
+    echo "WordPress is already installed."
+fi
 
 # Restart services
 echo "Restarting services..."
