@@ -86,7 +86,7 @@ check_success "Failed to create wp-config.php."
 # Install WordPress if it's not already installed
 if ! wp core is-installed --path=$WORDPRESS_PATH; then
     echo "Installing WordPress..."
-    wp core install --url="$URL" --title="$TITLE" --admin_user="$ADMIN_USER" --admin_password="$ADMIN_PASSWORD" --admin_email="$ADMIN_EMAIL" --skip-email --path=$WORDPRESS_PATH
+    wp core install --url=$URL --title=$TITLE --admin_user=$ADMIN_USER --admin_password=$ADMIN_PASSWORD --admin_email=$ADMIN_EMAIL --skip-email --path=$WORDPRESS_PATH
     check_success "Failed to install WordPress."
 else
     echo "WordPress is already installed."
