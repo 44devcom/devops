@@ -3,7 +3,7 @@
 # Define variables
 WORDPRESS_PATH="/opt/bitnami/wordpress"
 THEMES_SOURCE_PATH="$(pwd)/php/wordpress/themes"
-ACTIVE_THEME="wplmsblankchildtheme"
+ACTIVE_THEME="wplms-child-theme"
 
 # Function to check the success of a command and exit if it fails
 check_success() {
