@@ -10,6 +10,7 @@ DB_NAME="your_database_name"
 DB_USER="your_database_user"
 DB_PASSWORD="your_database_password"
 DB_HOST="your_database_host"
+WORDPRESS_PATH="/opt/bitnami/wordpress"
 FORCE=false
 
 # Function to check the success of a command and exit if it fails
@@ -57,32 +58,38 @@ wp --info
 check_success "WP-CLI is not installed correctly."
 
 if [ "$FORCE" = true ]; then
-    # Remove existing WordPress installation
-    echo "Force parameter detected: Removing existing WordPress files..."
-    sudo rm -rf /opt/bitnami/wordpress/*
-    check_success "Failed to remove existing WordPress files."
+    # Remove existing WordPress installation if it exists
+    if [ -d "$WORDPRESS_PATH" ]; then
+        echo "Force parameter detected: Removing existing WordPress files..."
+        sudo rm -rf ${WORDPRESS_PATH}/*
+        check_success "Failed to remove existing WordPress files."
+    fi
 
-    # Drop existing database tables
-    echo "Dropping existing WordPress database tables..."
-    wp db reset --yes
-    check_success "Failed to drop existing database tables."
+    # Drop existing database tables if they exist
+    if wp db tables --path=$WORDPRESS_PATH --quiet; then
+        echo "Dropping existing WordPress database tables..."
+        wp db reset --yes --path=$WORDPRESS_PATH
+        check_success "Failed to drop existing database tables."
+    else
+        echo "No existing WordPress database tables found."
+    fi
 else
     echo "No force parameter detected: Skipping file removal and database reset."
 fi
 
 # Download and install WordPress
 echo "Downloading WordPress..."
-wp core download --path=/opt/bitnami/wordpress
+wp core download --path=$WORDPRESS_PATH
 check_success "Failed to download WordPress."
 
 # Create a new configuration file
 echo "Creating a new wp-config.php file..."
-wp config create --dbname=$DB_NAME --dbuser=$DB_USER --dbpass=$DB_PASSWORD --dbhost=$DB_HOST
+wp config create --dbname=$DB_NAME --dbuser=$DB_USER --dbpass=$DB_PASSWORD --dbhost=$DB_HOST --path=$WORDPRESS_PATH
 check_success "Failed to create wp-config.php."
 
 # Install WordPress
 echo "Installing WordPress..."
-wp core install --path="/opt/bitnami/wordpress" --url="$URL" --title="$TITLE" --admin_user="$ADMIN_USER" --admin_password="$ADMIN_PASSWORD" --admin_email="$ADMIN_EMAIL" --skip-email --force
+wp core install --url="$URL" --title="$TITLE" --admin_user="$ADMIN_USER" --admin_password="$ADMIN_PASSWORD" --admin_email="$ADMIN_EMAIL" --skip-email --path=$WORDPRESS_PATH --force
 check_success "Failed to install WordPress."
 
 # Restart services
