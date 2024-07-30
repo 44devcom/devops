@@ -6,10 +6,10 @@ TITLE="44dev.com"
 ADMIN_USER="admin"
 ADMIN_PASSWORD="adminpassword"
 ADMIN_EMAIL="info@44dev.com"
-DB_NAME="your_database_name"
-DB_USER="your_database_user"
+DB_NAME="bitnami_wordpress"
+DB_USER="bn_wordpress"
 DB_PASSWORD="your_database_password"
-DB_HOST="your_database_host"
+DB_HOST="127.0.0.1:3306"
 WORDPRESS_PATH="/opt/bitnami/wordpress"
 FORCE=true
 
