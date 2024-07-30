@@ -12,7 +12,7 @@ DB_PASSWORD="your_database_password"
 DB_HOST="localhost"
 WORDPRESS_PATH="/opt/bitnami/wordpress"
 FORCE=false
-PATH=$("pwd")
+ROOT_PATH=$("pwd")
 
 # Function to check the success of a command and exit if it fails
 check_success() {
@@ -98,8 +98,8 @@ echo "Restarting services..."
 sudo /opt/bitnami/ctlscript.sh restart
 check_success "Failed to restart services."
 
-sudo bash $PATH/install-bitnami-wordpress-themes.sh
-sudo bash $PATH/install-bitnami-wordpress-plugins.sh
+sudo bash $ROOT_PATH/install-bitnami-wordpress-themes.sh
+sudo bash $ROOT_PATH/install-bitnami-wordpress-plugins.sh
 
 # Output instructions for Let's Encrypt SSL certificate
 echo "WordPress reinstallation completed successfully."
