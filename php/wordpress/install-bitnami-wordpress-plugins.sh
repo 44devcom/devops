@@ -24,11 +24,11 @@ wp --info --path=$WORDPRESS_PATH
 check_success "WP-CLI is not installed correctly."
 
 # Activate specified plugins
-for PLUGIN in "${ACTIVATE_PLUGINS[@]}"
-do
-    echo "Activating plugin: $PLUGIN"
-    wp plugin activate $PLUGIN --path=$WORDPRESS_PATH
-    check_success "Failed to activate plugin: $PLUGIN"
-done
+# for PLUGIN in "${ACTIVATE_PLUGINS[@]}"
+# do
+#     echo "Activating plugin: $PLUGIN"
+#     wp plugin activate $PLUGIN --path=$WORDPRESS_PATH
+#     check_success "Failed to activate plugin: $PLUGIN"
+# done
 
-echo "Plugins installed and activated successfully."
+echo "Plugins installed successfully."
