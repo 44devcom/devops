@@ -9,7 +9,7 @@ ADMIN_EMAIL="info@44dev.com"
 DB_NAME="bitnami_wordpress"
 DB_USER="bn_wordpress"
 DB_PASSWORD="your_database_password"
-DB_HOST="127.0.0.1:3306"
+DB_HOST="localhost"
 WORDPRESS_PATH="/opt/bitnami/wordpress"
 FORCE=true
 
