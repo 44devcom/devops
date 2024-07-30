@@ -12,7 +12,7 @@ DB_PASSWORD="your_database_password"
 DB_HOST="localhost"
 WORDPRESS_PATH="/opt/bitnami/wordpress"
 FORCE=false
-PATH="$(pwd)"
+PATH=$("pwd")
 
 # Function to check the success of a command and exit if it fails
 check_success() {
