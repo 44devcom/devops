@@ -59,19 +59,21 @@ check_success "WP-CLI is not installed correctly."
 
 if [ "$FORCE" = true ]; then
     # Remove existing WordPress installation if it exists
-    if [ -d "$WORDPRESS_PATH" ]; then
+    if [ -d "$WORDPRESS_PATH" ] && [ -n "$(ls -A $WORDPRESS_PATH)" ]; then
         echo "Force parameter detected: Removing existing WordPress files..."
         sudo rm -rf ${WORDPRESS_PATH}/*
         check_success "Failed to remove existing WordPress files."
+    else
+        echo "No WordPress files to remove."
     fi
 
     # Drop existing database tables if they exist
-    if wp db tables --path=$WORDPRESS_PATH --quiet; then
+    if [ -f "$WORDPRESS_PATH/wp-config.php" ]; then
         echo "Dropping existing WordPress database tables..."
         wp db reset --yes --path=$WORDPRESS_PATH
         check_success "Failed to drop existing database tables."
     else
-        echo "No existing WordPress database tables found."
+        echo "No existing WordPress installation detected at $WORDPRESS_PATH."
     fi
 else
     echo "No force parameter detected: Skipping file removal and database reset."
