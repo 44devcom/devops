@@ -97,8 +97,8 @@ echo "Restarting services..."
 sudo /opt/bitnami/ctlscript.sh restart
 check_success "Failed to restart services."
 
-sudo install-bitnami-wordpress-themes.sh
-sudo install-bitnami-wordpress-plugins.sh
+sudo bash install-bitnami-wordpress-themes.sh
+sudo bash install-bitnami-wordpress-plugins.sh
 
 # Output instructions for Let's Encrypt SSL certificate
 echo "WordPress reinstallation completed successfully."
