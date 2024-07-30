@@ -11,7 +11,7 @@ DB_USER="bn_wordpress"
 DB_PASSWORD="your_database_password"
 DB_HOST="localhost"
 WORDPRESS_PATH="/opt/bitnami/wordpress"
-FORCE=true
+FORCE=false
 
 # Function to check the success of a command and exit if it fails
 check_success() {
