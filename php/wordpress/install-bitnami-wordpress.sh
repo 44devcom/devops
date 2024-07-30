@@ -82,7 +82,7 @@ check_success "Failed to create wp-config.php."
 
 # Install WordPress
 echo "Installing WordPress..."
-wp core install --url="$URL" --title="$TITLE" --admin_user="$ADMIN_USER" --admin_password="$ADMIN_PASSWORD" --admin_email="$ADMIN_EMAIL" --skip-email --force
+wp core install --path="/opt/bitnami/wordpress" --url="$URL" --title="$TITLE" --admin_user="$ADMIN_USER" --admin_password="$ADMIN_PASSWORD" --admin_email="$ADMIN_EMAIL" --skip-email --force
 check_success "Failed to install WordPress."
 
 # Restart services
